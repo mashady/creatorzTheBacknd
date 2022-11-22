@@ -1,10 +1,6 @@
-const mongoose = require('mongoose');
 const express = require('express');
-
-const cookieParser = require('cookie-parser');
 const _ = require('lodash');
-
-let Post = require('../models/posts');
+const Post = require('../models/posts')
 const router = express.Router();
 
 router.get('/', (req, res)=> {

@@ -12,9 +12,15 @@ const cookieParser = require('cookie-parser');
 // route and middleware 
 
 const home = require('./routes/home');
+const post = require('./routes/post');
 const register = require('./routes/register');
 const login = require('./routes/login');
-const addPost = require('./routes/addPost');
+const addPost = require('./api/addPost');
+const editPost = require('./api/editPost');
+const deletePost = require('./api/deletePost');
+const addItem = require('./api/addItem');
+const editItem = require('./api/editItem');
+const deleteItem = require('./api/deleteItem');
 
 const app = express();
 
@@ -54,9 +60,15 @@ app.use(cookieParser());
 app.use(express.json());
 //app.get('*', chkUser);
 app.use('/', home);
+app.use('/', post);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/addPost', addPost);
+app.use('/editPost', editPost);
+app.use('/deletePost', deletePost);
+app.use('/addItem', addItem);
+app.use('/editItem', editItem);
+app.use('/deleteItem', deleteItem);
 //require('./prod.js')(app);
 port = 8000;
 app.listen(port, () => logger.info(`Listening on port ${port}...`));
